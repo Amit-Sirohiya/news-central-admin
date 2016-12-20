@@ -23,3 +23,42 @@
   content: "|";
   padding-right: 0.3em;
 }
+
+
+/*Menu Toolbar */
+md-toolbar.md-menu-toolbar {
+  background-color: menutext;
+  color: #ffffff;
+}
+
+md-toolbar .app-name{
+  color: cyan;
+}
+
+md-toolbar button{
+  position: relative;
+  width: 100px;
+  margin: 0 auto;
+  padding: 10px;
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  user-select:none;
+  background: #fff;
+  border-radius: 7px;
+  border: 1px solid rgba(0,0,0,0.15);
+  box-shadow: 0 1px 1px rgba(50,50,50,0.1);
+  cursor: pointer;
+  outline: none;
+  font-weight: bold;
+  color: white;
+}
+
+md-menu-content.md-menu-bar-menu.md-dense{
+  border-top: 3px solid #3f51b5;;
+  min-width: 192px;
+}
+
+md-menu-bar.md-default-theme md-menu.md-open > button, md-menu-bar md-menu.md-open > button, md-menu-bar.md-default-theme md-menu > button:focus, md-menu-bar md-menu > button:focus{
+  color: #8AA8BD;
+  background: none;
+}

@@ -1,0 +1,88 @@
+<div ng-cloak>
+    <md-toolbar class="md-menu-toolbar">
+        <div layout="row">
+            <md-toolbar-filler layout layout-align="center center">
+                <md-icon md-svg-icon="call:chat"></md-icon>
+            </md-toolbar-filler>
+
+            <div>
+                <h2 class="md-toolbar-tools app-name">News Central</h2>
+                <md-menu-bar>
+                    <md-menu>
+                        <button ng-click="$mdOpenMenu()">
+                            File
+                        </button>
+                        <md-menu-content>
+                            <md-menu-item>
+                                <md-button ng-click="navigateTo()">
+                                    Share...
+                                </md-button>
+                            </md-menu-item>
+                            <md-menu-divider></md-menu-divider>
+                            <md-menu-item>
+                                <md-button ng-click="navigateTo()">
+                                    Open...
+                                </md-button>
+                            </md-menu-item>
+                            <md-menu-item>
+                                <md-button disabled="disabled" ng-click="navigateTo()">
+                                    Rename
+                                </md-button>
+                            </md-menu-item>
+                            <md-menu-divider></md-menu-divider>
+                            <md-menu-item>
+                                <md-button ng-click="navigateTo()">
+                                    Print
+                                </md-button>
+                            </md-menu-item>
+                        </md-menu-content>
+                    </md-menu>
+                    <md-menu>
+                        <button ng-click="$mdOpenMenu()">
+                            Edit
+                        </button>
+                        <md-menu-content>
+                            <md-menu-item class="md-indent">
+                                <md-icon md-svg-icon="undo"></md-icon>
+                                <md-button ng-click="navigateTo()">
+                                    Undo
+                                </md-button>
+                            </md-menu-item>
+                            <md-menu-item class="md-indent">
+                                <md-icon md-svg-icon="redo"></md-icon>
+                                <md-button ng-click="navigateTo()">
+                                    Redo
+                                </md-button>
+                            </md-menu-item>
+                            <md-menu-divider></md-menu-divider>
+                            <md-menu-item class="md-indent">
+                                <md-icon md-svg-icon="content-cut"></md-icon>
+                                <md-button ng-click="navigateTo()">
+                                    Cut
+                                </md-button>
+                            </md-menu-item>
+                            <md-menu-item class="md-indent">
+                                <md-icon md-svg-icon="content-copy"></md-icon>
+                                <md-button ng-click="navigateTo()">
+                                    Copy
+                                </md-button>
+                            </md-menu-item>
+                            <md-menu-item class="md-indent">
+                                <md-icon md-svg-icon="content-paste"></md-icon>
+                                <md-button ng-click="ctrl.sampleAction('paste', $event)">
+                                    Paste
+                                </md-button>
+                            </md-menu-item>
+                            <md-menu-divider></md-menu-divider>
+                            <md-menu-item class="md-indent">
+                                <md-button ng-click="navigateTo()">
+                                    Find and replace...
+                                </md-button>
+                            </md-menu-item>
+                        </md-menu-content>
+                    </md-menu>
+                </md-menu-bar>
+            </div>
+        </div>
+    </md-toolbar>
+</div>

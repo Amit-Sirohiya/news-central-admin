@@ -10,6 +10,9 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="../app.css">
+  <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css"/>
+  <link rel="stylesheet" href="../bower_components/angular-material/angular-material.css"/>
+
 </head>
 <body>
   <!--<ul class="menu">-->
@@ -20,7 +23,7 @@
   <!--[if lt IE 7]>
       <!--<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>-->
   <!--<![endif]&ndash;&gt;-->
-
+  <div ui-view="navigation.header"></div>
   <div ui-view></div>
 
   <!--<div>Angular seed app: v<span app-version></span></div>-->
@@ -37,6 +40,10 @@
   <script src="../bower_components/angular-resource/angular-resource.js"></script>
   <script src="../bower_components/angular-route/angular-route.js"></script>
   <script src="app.js"></script>
+  <script src="navigation/navigation.js"></script>
+  <script src="news/news.module.js"></script>
+  <script src="news/news.controller.js"></script>
+  <script src="news/news.service.js"></script>
   <script src="components/version/version.js"></script>
   <script src="components/version/version-directive.js"></script>
   <script src="components/version/interpolate-filter.js"></script>
