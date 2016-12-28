@@ -7,3 +7,5 @@ tmp
 .idea
 .travis.yml
 .jshintrc
+vendor/
+dist/

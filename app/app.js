@@ -4,6 +4,8 @@
 angular.module('news-hub', [
     'ngAnimate', 'ngAria', 'ngMaterial', 'ngResource', 'ngMessages',
     'ui.router',
+    // the templates cache
+    'templates-app', 'templates-common',
     'news-hub.version',
     'news-hub.navigation',
     'news-hub.news'

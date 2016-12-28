@@ -33,6 +33,8 @@ md-toolbar.md-menu-toolbar {
 
 md-toolbar .app-name{
   color: cyan;
+  font-family: 'AR BLANCA';
+  font-size: xx-large;
 }
 
 md-toolbar button{
