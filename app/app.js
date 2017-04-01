@@ -25,7 +25,7 @@ angular.module('news-hub', [
                     }
                 }
             });
-        $urlRouterProvider.otherwise('/news-hub');
+        $urlRouterProvider.otherwise('/news-hub/news/list');
 
         $locationProvider.html5Mode(false);
     });

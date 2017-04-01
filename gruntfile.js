@@ -87,9 +87,7 @@ module.exports = function(grunt) {
          * nonetheless inside 'src/'.
          */
         jshint: {
-            src: [
-                config.app_files.js
-            ],
+            src: [ config.app_files.js ],
             gruntfile: [
                 'gruntfile.js'
             ],
@@ -103,7 +101,8 @@ module.exports = function(grunt) {
                 sub: true,
                 boss: true,
                 eqnull: true,
-                "predef": ["angular", "routingConfig"]
+                "predef": ["angular", "routingConfig"],
+                reporterOutput: ""
             },
             globals: {}
         },

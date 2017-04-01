@@ -76,3 +76,38 @@ md-menu-bar.md-default-theme md-menu.md-open > button, md-menu-bar md-menu.md-op
   color: #8AA8BD;
   background: none;
 }
+
+.md-headline, .md-subhead{
+  color: white;
+}
+
+
+/* md-card*/
+md-card{
+  width: 610px;
+  height: 400px;
+}
+md-card.md-dark-blue-theme{
+  box-shadow: 5px 7px 5px 0 #7aa3a3;
+  border-radius: 10px;
+}
+md-card md-card-title{
+  width: 600px;
+  flex: 0;
+}
+.card-media img{
+  /*background-image: url(../news-central-logo.png);*/
+  width: 200px;
+  height: 200px;
+}
+
+.md-headline{
+  text-transform: uppercase;
+}
+
+.card-content{
+  padding-left : 16px;
+  color: #ffffff;
+  height:200px;
+  overflow: hidden;
+}
