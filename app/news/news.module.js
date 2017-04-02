@@ -15,12 +15,27 @@ angular.module('news-hub.news', [])
                 url : '/list',
                 views : {
                     '@' : {
-                        templateUrl: "news/news.tpl.html",
+                        templateUrl: "news/news-list.tpl.html",
                         controller: "NewsController"
                     },
                     'news-content@news-hub.news.list' :{
                         templateUrl: "common/news-container.tpl.html"
                     }
+                },
+                params: {
+                    mode: 'list'
+                }
+            })
+            .state('news-hub.news.view', {
+                url : '/:id',
+                views : {
+                    '@' : {
+                        templateUrl: "news/news.tpl.html",
+                        controller: "NewsController"
+                    }
+                },
+                params: {
+                    mode: 'view'
                 }
             });
     });

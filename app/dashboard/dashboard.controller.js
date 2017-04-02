@@ -6,9 +6,15 @@ angular.module('news-hub.news')
 
 
 
-    .controller('DashboardController', function ($scope) {
+    .controller('DashboardController', function ($scope, $state) {
         $scope.show = {
             darkTheme: true
+        };
+
+        $scope.view = function (id) {
+            $state.go('news-hub.news.view', {
+                id : id
+            });
         };
 
         $scope.newsList = [
