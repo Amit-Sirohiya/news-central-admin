@@ -1,12 +1,12 @@
 <div ng-cloak>
     <md-toolbar class="md-menu-toolbar">
         <div layout="row">
-            <md-toolbar-filler layout layout-align="center center">
+            <md-toolbar-filler layout layout-align="center center" ng-click="goToDashboard()">
                 <img src="../assets/news-central-logo.png" width="80" height="80" class = "app-logo"/>
             </md-toolbar-filler>
 
             <div>
-                <h2 class="md-toolbar-tools app-name">News Central</h2>
+                <h2 class="md-toolbar-tools app-name"  ng-click="goToDashboard()">News Central</h2>
                 <md-menu-bar>
                     <md-menu>
                         <button ng-click="$mdOpenMenu()">

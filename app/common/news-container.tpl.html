@@ -1,0 +1,28 @@
+<md-card md-theme="dark-blue" md-theme-watch>
+    <md-card-title>
+        <md-card-title-text>
+            <span class="md-headline">{{news.headline}}</span>
+            <span class="md-subhead">{{news.subHeading}}</span>
+        </md-card-title-text>
+    </md-card-title>
+    <md-card-content layout="row" layout-align="space-between">
+        <div class="md-media-xl card-media">
+            <img src="/assets/news-image-{{$index+1}}.png"/>
+        </div>
+        <div class="card-content">
+            {{news.content}}
+        </div>
+        <md-card-actions layout="column">
+            <md-button class="md-icon-button" aria-label="Favorite">
+                <md-icon md-svg-icon="assets/img/icons/ic_favorite_24px.svg"></md-icon>
+            </md-button>
+            <md-button class="md-icon-button" aria-label="Settings">
+                <md-icon md-svg-icon="assets/img/icons/ic_menu_24px.svg"></md-icon>
+            </md-button>
+            <md-button class="md-icon-button" aria-label="Share">
+                <md-icon md-svg-icon="assets/img/icons/ic_share_24px.svg"></md-icon>
+            </md-button>
+        </md-card-actions>
+    </md-card-content>
+</md-card>
+

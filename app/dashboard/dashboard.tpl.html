@@ -1,0 +1,31 @@
+<div ng-cloak>
+    <div class="col-sm-8 md-padding" layout-xs="wow" layout="column">
+        <div flex-xs flex-gt-xs="50" layout="column" ng-repeat="news in newsList">
+            <div ui-view="news-content"></div>
+        </div>
+    </div>
+    <div class="col-sm-4 md-padding" layout-xs="row" layout="column">
+        <a href="https://twitter.com/Chaturvediyo" class="twitter-follow-button" data-size="large"
+           data-show-screen-name="false" data-lang="en" data-show-count="false">
+            Follow
+        </a>
+        <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+        <div>
+            <a class="twitter-timeline"  href="https://twitter.com/AmitSirohiya22" data-widget-id="524518327129870336">
+                Tweets by Editor
+            </a>
+            <script>
+                !function (d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+                    if (!d.getElementById(id)) {
+                        js = d.createElement(s);
+                        js.id = id;
+                        js.src = p + "://platform.twitter.com/widgets.js";
+                        fjs.parentNode.insertBefore(js, fjs);
+                    }
+                }(document, "script", "twitter-wjs");
+            </script>
+        </div>
+    </div>
+</div>
+

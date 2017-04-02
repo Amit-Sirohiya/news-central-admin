@@ -17,6 +17,9 @@ angular.module('news-hub.news', [])
                     '@' : {
                         templateUrl: "news/news.tpl.html",
                         controller: "NewsController"
+                    },
+                    'news-content@news-hub.news.list' :{
+                        templateUrl: "common/news-container.tpl.html"
                     }
                 }
             });

@@ -8,16 +8,21 @@ angular.module('news-hub', [
     'templates-app', 'templates-common',
     'news-hub.version',
     'news-hub.navigation',
+    'news-hub.dashboard',
     'news-hub.news'
 ]).
-    config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
+    config(function ($stateProvider, $urlRouterProvider, $locationProvider, $mdThemingProvider) {
         //$locationProvider.hashPrefix('!');
 
-        //$routeProvider.otherwise({redirectTo: '/view1'});
+        //$mdThemingProvider.theme('dark-grey').backgroundPalette('grey').dark();
+        //$mdThemingProvider.theme('dark-orange').backgroundPalette('orange').dark();
+        //$mdThemingProvider.theme('dark-purple').backgroundPalette('deep-purple').dark();
+        $mdThemingProvider.theme('dark-blue').backgroundPalette('blue').dark();
+
         $stateProvider
             .state('news-hub', {
                 url: '/news-hub',
-                templateUrl: 'news/news.tpl.html',
+                abstract :true,
                 views: {
                     "navigation.header": {
                         templateUrl: "navigation/navigation.tpl.html",
@@ -25,7 +30,7 @@ angular.module('news-hub', [
                     }
                 }
             });
-        $urlRouterProvider.otherwise('/news-hub/news/list');
+        $urlRouterProvider.otherwise('/news-hub/dashboard');
 
         $locationProvider.html5Mode(false);
     });

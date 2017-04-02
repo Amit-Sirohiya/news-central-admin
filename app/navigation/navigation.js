@@ -4,6 +4,9 @@
 
 angular.module("news-hub.navigation", [])
     .controller("NavigationController", function ($scope, $state) {
+        $scope.goToDashboard = function () {
+            $state.go('news-hub.dashboard');
+        };
         $scope.navigateTo = function () {
             $state.go('news-hub.news.list');
         };
