@@ -176,7 +176,7 @@ module.exports = function(grunt) {
                 port: '9001',
                 // Change this to 'localhost' to deny access to the server from outside.
                 hostname: 'localhost',
-                livereload: 35730,
+                livereload: 35729,
                 ws: true
             },
             livereload: {
@@ -268,6 +268,14 @@ module.exports = function(grunt) {
                     config.app_files.ctpl
                 ],
                 tasks: ['html2js', 'index:build']
+            },
+
+            /**
+             * When the CSS files change, we need to compile and minify them.
+             */
+            css: {
+                files: ['app.css'],
+                tasks: ['concat:build_css']
             }
         }
 
