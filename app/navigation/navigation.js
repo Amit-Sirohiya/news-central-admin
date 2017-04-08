@@ -7,7 +7,15 @@ angular.module("news-hub.navigation", [])
         $scope.goToDashboard = function () {
             $state.go('news-hub.dashboard');
         };
-        $scope.navigateTo = function () {
-            $state.go('news-hub.news.list');
+        $scope.navigateTo = function (stateName) {
+            if(stateName) {
+                $state.go(stateName);
+            }
+            else{
+                $state.go('news-hub.news.list');
+            }
+        };
+        $scope.navigateTo1 = function () {
+            $state.go('news-hub.news.edit');
         };
     });

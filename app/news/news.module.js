@@ -13,6 +13,9 @@ angular.module('news-hub.news', [])
             })
             .state('news-hub.news.list', {
                 url : '/list',
+                params : {
+                    mode : 'list'
+                },
                 views : {
                     '@' : {
                         templateUrl: "news/news-list.tpl.html",
@@ -21,9 +24,33 @@ angular.module('news-hub.news', [])
                     'news-content@news-hub.news.list' :{
                         templateUrl: "common/news-container.tpl.html"
                     }
+                }
+            })
+            .state('news-hub.news.create', {
+                url : '/create',
+                params : {
+                    mode : 'create'
                 },
-                params: {
-                    mode: 'list'
+                views : {
+                    '@' : {
+                        templateUrl: "news/news-form.tpl.html",
+                        controller: "NewsController"
+                    }
+                }
+            })
+            .state('news-hub.news.edit', {
+                url : '/edit',
+                params : {
+                    mode : 'edit'
+                },
+                views : {
+                    '@' : {
+                        templateUrl: "news/news-list.tpl.html",
+                        controller: "NewsController"
+                    },
+                    'news-content@news-hub.news.edit' :{
+                        templateUrl: "common/news-container.tpl.html"
+                    }
                 }
             })
             .state('news-hub.news.view', {
@@ -32,6 +59,9 @@ angular.module('news-hub.news', [])
                     '@' : {
                         templateUrl: "news/news.tpl.html",
                         controller: "NewsController"
+                    },
+                    'news-content@news-hub.news.view' :{
+                        templateUrl: "common/news-container.tpl.html"
                     }
                 },
                 params: {

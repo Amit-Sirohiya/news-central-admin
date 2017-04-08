@@ -111,3 +111,22 @@ md-card md-card-title{
   height:200px;
   overflow: hidden;
 }
+
+section{
+  margin: 10px;
+}
+
+.form-row{
+  margin-bottom: 10px;
+}
+
+.required-mark{
+  color: red;
+}
+
+/* Chips */
+
+md-chip.md-chip{
+  background: skyblue;
+  color: white;
+}

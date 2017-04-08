@@ -164,14 +164,14 @@ module.exports = function(grunt) {
 
         connect: {
 
-            //proxies: [{
-            //    context: '/crimson',
-            //    host: '<%=server.dev.host%>',
-            //    port: '<%=server.dev.port%>',
-            //    headers: {host: '<%=server.dev.host%>'},
-            //    https: false,
-            //    changeOrigin: false
-            //}],
+            proxies: [{
+                context: '/news-central',
+                host: '35.154.84.200',
+                port: 8080,
+                headers: {host: 'localhost'},
+                https: false,
+                changeOrigin: false
+            }],
             options: {
                 port: '9001',
                 // Change this to 'localhost' to deny access to the server from outside.

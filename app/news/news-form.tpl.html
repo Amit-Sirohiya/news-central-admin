@@ -1,0 +1,97 @@
+<section>
+    <md-content class="col-md-6">
+        <div class="md-content__body">
+            <form name="newsForm" role="form" class="form-validation" autocomplete="off" novalidate>
+                <div class="form-group" layout="column" layout-sm="row">
+                    <div class="col-sm-12 form-section">
+                        <div class="col-sm-12 form-row">
+                            <div class="col-sm-3">
+                                <label>Category</label><span class="required-mark">*</span>
+                            </div>
+                            <div class="col-sm-9">
+                                <md-chips ng-model="news.categories"
+                                          md-require-match="true" md-autocomplete-snap>
+                                    <md-autocomplete
+                                            md-selected-item="selected.item"
+                                            md-search-text="selected.searchText"
+                                            md-items="category in searchCategory(selected.searchText)"
+                                            md-item-text="category.name"
+                                            placeholder="Select category">
+                                        <span md-highlight-text="selected.searchText">{{category.name}}</span>
+                                    </md-autocomplete>
+                                    <md-chip-template>
+                                    <span>
+                                      <strong>{{$chip.name}}</strong>
+                                    </span>
+                                    </md-chip-template>
+                                </md-chips>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 form-row">
+                            <div class="col-sm-3">
+                                <label>Title</label><span class="required-mark">*</span>
+                            </div>
+                            <div class="col-sm-9">
+                                <input type="text"
+                                       name="news_title"
+                                       id="news_title"
+                                       class="form-control"
+                                       ng-required="true"
+                                       ng-model="news.title"/>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 form-row">
+                            <div class="col-sm-3">
+                                <label>Source</label><span class="required-mark">*</span>
+                            </div>
+                            <div class="col-sm-9">
+                                <input type="text"
+                                       name="news_source"
+                                       id="news_source"
+                                       class="form-control"
+                                       ng-required="true"
+                                       ng-model="news.source"/>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 form-row">
+                            <div class="col-sm-3">
+                                <label>Description</label><span class="required-mark">*</span>
+                            </div>
+                            <div class="col-sm-9">
+                                <textarea cols="50" rows="7"
+                                          class="form-control"
+                                          id="news_description"
+                                          name="news_description"
+                                          ng-required="true"
+                                          ng-model="news.description">
+                                    </textarea>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 form-row">
+                            <div class="col-sm-3">
+                                <label>Image</label>
+                            </div>
+                            <div class="col-sm-9" style="color: red;">
+                                Coming Soon
+                            </div>
+                        </div>
+                        <div class="col-sm-12 form-row">
+                            <md-button type="button"
+                                       ng-disabled="newsForm.$invalid"
+                                       class="btn-width-medium md-raised md-primary"
+                                       ng-click="save()">
+                                Save
+                            </md-button>
+                            <md-button type="button"
+                                       class="btn-width-medium md-raised md-primary"
+                                       ng-click="close()">
+                                Cancel
+                            </md-button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </md-content>
+</section>
+<!--<pre>{{newsForm | json}}</pre>-->

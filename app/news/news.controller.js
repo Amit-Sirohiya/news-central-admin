@@ -11,7 +11,7 @@ angular.module('news-hub.news')
     //    $mdThemingProvider.theme('dark-blue').backgroundPalette('blue').dark();
     //})
 
-    .controller('NewsController', function ($scope, $state, $stateParams, $location) {
+    .controller('NewsController', function ($scope, $state, $stateParams, $location, CategoryService, NewsService, logger) {
 
         $scope.url = $location.absUrl();
 
@@ -19,53 +19,60 @@ angular.module('news-hub.news')
             darkTheme: true
         };
 
-        $scope.newsList = [
+        $scope.categories = [];
+        $scope.newsList = [];
+        $scope.news = {
+            title: '', source: '', description: '', publishedOn: new Date().toDateString(), categories : []
+        };
 
-            {
-                id: 1,
-                headline: 'Sunidhi Chauhan on the cover of Femina Magazine, March edition',
-                subHeading: 'Posted On  08 Mar, 2017 @ 20:53 pm by RnMTeam',
-                tags : [ 'Entertainment', 'Bollywood', 'Singer', 'Femina'],
-                content: "This Womens Day is indeed special for one of Bollywoods biggest playback singer, Sunidhi Chauhan." +
-                "The singer who made 2017 grand with Rangoon track 'Bloody Hell' is pushing the envelope further by not just limiting herself to music." +
-                "The singer made it to the March 2017 cover of 'Femina' magazine." +
-                "Yes, Sunidhi looks both powerful and in control on the March 2017 Femina cover." +
-                "The singer who has earlier tried her hands at acting is now exploring more with Femina." +
-                "An overjoyed Sunidhi shared the magazine cover on her social media accounts and also expressed her happiness."
-            },
-            {
-                id: 2,
-                headline: 'OMG: Sunidhi Chauhan played cameo in Kangana Ranauts Bloody Hell from Rangoon',
-                subHeading: 'Posted On  24 Feb, 2017 @ 20:53 pm by DNA webdesk',
-                tags : [ 'Entertainment', 'Bollywood', 'Singer', 'Movie'],
-                content: 'If you have watched the film, you will know who we are talking about.' +
-                'Otherwise, you wouldnt know. So here it is - Kangana Ranaut can be seen grooving to the peppy Bloody Hell number in the period film.' +
-                'But along with her, there iss someone else we spotted during the song.' +
-                'No, this time, it isn not any other actor but a singer.' +
-                'Yes, Sunidhi Chauhan who sung the song was there in three shots and she definitely looked mesmerising in the 40s attire. Go watch the song again to spot her!'
-            },
-            {
-                id: 3,
-                headline: 'Indian Idol: 5 reasons LV Revanth might win the show.',
-                subHeading: 'Posted On 31st March, 2017 @ 20:53 pm by Sony TV',
-                tags : [ 'Entertainment', 'TV', 'Reality Show'],
-                content: 'The season finale of Indian Idol 9 is just round the corner with just three contestants left - LV Revanth Kumar, Khuda Baksh and PVNS Rohit.' +
-                'From fourteen they are down to just three after Maalavika Sundar was eliminated on Saturday.' +
-                'These three singers will put their best foot forward for the coveted title of Indian Idol but Vishakhapatnams LV Revanth is our favourite.' +
-                'Revanth is a budding professional and has immense talent. Here are five reasons why we think he might win this season of Indian Idol.'
-            },
-            {
-                id: 4,
-                headline: 'Jio on a roll, claims 72 million as Prime members in one month',
-                subHeading: 'Posted On  31 Mar, 2017 @ 07:00 pm by TOI',
-                tags : [ 'Communication', 'Recharge', 'Mobile'],
-                content: 'Reliance Jio Infocomm Ltd. announced on March 31, 2017, that in just one month, over 72 million customers have signed up for Jio Prime.' +
-                'According to a company press release, this is the largest migration from free to paid services in history in such a short period of time.' +
-                'The release said,Considering the unprecedented demand for enrolling to Jio Prime and doing the first recharge, ' +
-                'Jio has extended the deadline for purchasing Jio Rs 303 (and other) plans till April 15. ' +
-                'This extension will provide the necessary breathing room for users to avoid service disruption during the transition from free to paid services.'
+        if ($stateParams.mode === 'list') {
+            NewsService.all()
+                .then(function (newsList) {
+                    $scope.newsList = newsList.data;
+                });
+        }
+
+        if ($stateParams.mode === 'create') {
+            CategoryService.all()
+                .then(function (categoryList) {
+                    $scope.categories = categoryList.data;
+                });
+            $scope.selected = {
+                item: null,
+                searchText: null
+            };
+        }
+        if($stateParams.mode === 'view'){
+            CategoryService.all()
+                .then(function (categoryList) {
+                    $scope.categories = categoryList.data;
+                    return NewsService.get($stateParams.id);
+                })
+                .then(function (newsdata) {
+                    var news = newsdata.data;
+                    $scope.news.id = news.id;
+                    $scope.news.title = news.title;
+                    var matchedCategory = _.find($scope.categories, function (category) {
+                        return category.id === news.categoryId;
+                    });
+                    $scope.news.categories.push(matchedCategory.name);
+                    $scope.news.source = news.source;
+                    $scope.news.description = news.description;
+                    $scope.news.publishedOn = news.publishedOn;
+                });
+        }
+
+        $scope.searchCategory = function (searchText) {
+            if(!searchText){
+                return [];
             }
-        ];
+            var lowercaseQuery = searchText.toLowerCase();
+            return _.filter($scope.categories, function (category) {
+                if(category.name.toLowerCase().indexOf(lowercaseQuery) === 0){
+                    return true;
+                }
+            });
+        };
 
         $scope.view = function (id) {
             $state.go('news-hub.news.view', {
@@ -73,9 +80,36 @@ angular.module('news-hub.news')
             });
         };
 
-        if($stateParams.mode === 'view'){
-            $scope.news = _.find($scope.newsList, function (news) {
-                return news.id === Number($stateParams.id);
-            });
-        }
+        $scope.deleteNews = function (id) {
+            NewsService.delete(id)
+                .then(function () {
+                    $scope.newsList = _.filter($scope.newsList, function (news) {
+                        if(news.id !== id){
+                            return true;
+                        }
+                    });
+                    //logger.success("News deleted successfully.");
+                });
+        };
+        $scope.save = function () {
+            var newsToSave = {
+                title : $scope.news.title,
+                source : $scope.news.source,
+                description : $scope.news.description,
+                publishedOn : $scope.news.publishedOn,
+                categoryId : _.first($scope.news.categories).id
+            };
+            console.log("%c News", "color: blue;", $scope.news);
+            NewsService.save(newsToSave)
+                .then(function (data, status, headers, config) {
+                    logger.success("News Saved.");
+                })
+                .catch(function (error) {
+                    logger.error(error);
+                });
+        };
+
+        $scope.cancel = function () {
+            $state.go('news-hub.dashboard');
+        };
     });

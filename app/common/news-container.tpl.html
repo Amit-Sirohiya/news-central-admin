@@ -1,8 +1,8 @@
 <md-card md-theme="dark-blue" md-theme-watch>
     <md-card-title>
         <md-card-title-text ng-click="view(news.id)">
-            <span class="md-headline">{{news.headline}}</span>
-            <span class="md-subhead">{{news.subHeading}}</span>
+            <span class="md-headline">{{news.title}}</span>
+            <span class="md-subhead">Posted On  {{news.publishedOn}} by {{news.source}}</span>
         </md-card-title-text>
     </md-card-title>
     <md-card-content layout="row" layout-align="space-between">
@@ -10,14 +10,14 @@
             <img src="/assets/news-image-{{$index+1}}.png"/>
         </div>
         <div class="card-content">
-            {{news.content}}
+            {{news.description}}
         </div>
         <md-card-actions layout="column">
+            <md-button class="md-icon-button" aria-label="Settings" ng-click="deleteNews(news.id)">
+                <md-icon md-svg-icon="assets/img/icons/ic_delete_24px.svg"></md-icon>
+            </md-button>
             <md-button class="md-icon-button" aria-label="Favorite">
                 <md-icon md-svg-icon="assets/img/icons/ic_favorite_24px.svg"></md-icon>
-            </md-button>
-            <md-button class="md-icon-button" aria-label="Settings">
-                <md-icon md-svg-icon="assets/img/icons/ic_menu_24px.svg"></md-icon>
             </md-button>
             <md-button class="md-icon-button" aria-label="Share">
                 <md-icon md-svg-icon="assets/img/icons/ic_share_24px.svg"></md-icon>

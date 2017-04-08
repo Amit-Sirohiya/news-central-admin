@@ -20,9 +20,10 @@ angular.module('news-hub.news')
         $scope.newsList = [
             {
                 id: 1,
-                headline: 'Sunidhi Chauhan on the cover of Femina Magazine, March edition',
-                subHeading: 'Posted On  08 Mar, 2017 @ 20:53 pm by RnMTeam',
-                content: "This Womens Day is indeed special for one of Bollywoods biggest playback singer, Sunidhi Chauhan." +
+                title: 'Sunidhi Chauhan on the cover of Femina Magazine, March edition',
+                publishedOn: '08 Mar, 2017 @ 20:53 pm',
+                source : 'RnMTeam',
+                description: "This Womens Day is indeed special for one of Bollywoods biggest playback singer, Sunidhi Chauhan." +
                 "The singer who made 2017 grand with Rangoon track 'Bloody Hell' is pushing the envelope further by not just limiting herself to music." +
                 "The singer made it to the March 2017 cover of 'Femina' magazine." +
                 "Yes, Sunidhi looks both powerful and in control on the March 2017 Femina cover." +
@@ -31,9 +32,10 @@ angular.module('news-hub.news')
             },
             {
                 id: 2,
-                headline: 'OMG: Sunidhi Chauhan played cameo in Kangana Ranauts Bloody Hell from Rangoon',
-                subHeading: 'Posted On  24 Feb, 2017 @ 20:53 pm by DNA webdesk',
-                content: 'If you have watched the film, you will know who we are talking about.' +
+                title: 'OMG: Sunidhi Chauhan played cameo in Kangana Ranauts Bloody Hell from Rangoon',
+                publishedOn: '24 Feb, 2017 @ 20:53 pm',
+                source : 'DNA webdesk',
+                description: 'If you have watched the film, you will know who we are talking about.' +
                 'Otherwise, you wouldnt know. So here it is - Kangana Ranaut can be seen grooving to the peppy Bloody Hell number in the period film.' +
                 'But along with her, there iss someone else we spotted during the song.' +
                 'No, this time, it isn not any other actor but a singer.' +

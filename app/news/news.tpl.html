@@ -1,16 +1,16 @@
 <div class="container">
-    <h1>{{news.headline}}</h1>
-    <h6>{{news.subHeading}}</h6>
+    <h1>{{news.title}}</h1>
+    <h6>Posted On  {{news.publishedOn}} by {{news.source}}</h6>
     <div layout="column">
-        <md-chips ng-model="news.tags" readonly="true">
-            {{$chip}}
+        <md-chips ng-model="news.categories" readonly="true">
+            {{$chip.name}}
         </md-chips>
     </div>
     <div>
         <div class="col-md-12">
             <img style='left: 25%;margin-right: 10px;position: relative;right: 25%;width: 50%;'
                  src="../assets/news-image-{{news.id}}.png" />
-            <p style="margin-top: 5px;">{{news.content}}</p>
+            <p style="margin-top: 5px;">{{news.description}}</p>
         </div>
     </div>
     <!--<div class="fb-comments" data-href="{{url}}" data-width="200" data-numposts="5"></div>-->

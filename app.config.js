@@ -67,7 +67,8 @@ module.exports = {
             'vendor/ngDialog/css/ngDialog.css',
             'vendor/ngDialog/css/ngDialog-theme-default.css',
             'vendor/jquery-svg/jquery.svg.css',
-            'vendor/bootstrap-daterangepicker/daterangepicker-bs3.css'
+            'vendor/bootstrap-daterangepicker/daterangepicker-bs3.css',
+            'vendor/angular-toastr/dist/angular-toastr.css'
         ],
         assets: {
             images: [

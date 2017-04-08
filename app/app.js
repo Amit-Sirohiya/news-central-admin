@@ -6,11 +6,19 @@ angular.module('news-hub', [
     'ui.router',
     // the templates cache
     'templates-app', 'templates-common',
+
     'news-hub.blocks.router',
+    'news-hub.blocks.logger',
+
     'news-hub.version',
+
+    'news-hub.common',
     'news-hub.navigation',
     'news-hub.dashboard',
-    'news-hub.news'
+    'news-hub.category',
+    'news-hub.news',
+
+    'ngLodash' ,  'ngDialog'  ,  "ngFileUpload", "ui.bootstrap", "ui.bootstrap.tpls", "angular-confirm"
 ])
 
     .controller('MainController', function () {
