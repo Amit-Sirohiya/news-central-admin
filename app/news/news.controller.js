@@ -30,7 +30,7 @@ angular.module('news-hub.news')
                 .then(function (newsList) {
                     $scope.newsList = newsList.data;
                 });
-        }
+            }
 
         if ($stateParams.mode === 'create') {
             CategoryService.all()
@@ -106,10 +106,6 @@ angular.module('news-hub.news')
                 })
                 .catch(function (error) {
                     logger.error(error);
-                });
-        };
-
-        $scope.cancel = function () {
-            $state.go('news-hub.dashboard');
+            });
         };
     });

@@ -1,0 +1,77 @@
+<div class="container" style="margin-top:70px">
+    <div class="row">
+        <div class="col-sm-6 col-md-4 col-sm-offset-3 col-md-offset-4">
+            <div class="panel panel-default">
+
+                <div class="panel-body">
+
+                    <div class="row">
+                        <div class="center-block"><img style="height:50px;margin-top:15px;margin-left:145px"
+                                                       src="/assets/news-central-logo.png"
+                                                       class="img-responsive profile-img" alt=""></div>
+                        <hr>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-10  col-md-offset-1 ">
+                            <div class="form-group">
+                                <label>Username:</label>
+
+                                <div class="input-group"><span class="input-group-addon"> <md-icon class="md-icon svg"
+                                                                                                   md-svg-src="/assets/ic_email_black_24px.svg"
+                                                                                                   class="email"></md-icon> </span>
+                                    <input ng-model="user.username" type="email" class="form-control"
+                                           placeholder="Username"
+                                           ng-required="true" autofocus>
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Password:</label>
+
+                                <div class="input-group"> <span class="input-group-addon">  <md-icon class="md-icon svg"
+                                                                                                     md-svg-src="/assets/lock.svg"
+                                                                                                     class="email"></md-icon> </span>
+                                    <input class="form-control" placeholder="Password" ng-model="user.password"
+                                           type="password" ng-required="true"
+                                           value="">
+                                </div>
+                            </div>
+                            <div class="form-group" align="center"><label>
+                                <input type="checkbox">
+                                Keep me Logged in </label></div>
+
+                            <div class="form-group" align="center">
+
+                                <md-button ng-click="userLogin()" style="background-color:green;width: 50px"
+                                           md-no-ink class="md-raised md-primary">login
+                                </md-button>
+                                <md-button style="background-color:grey;width: 50px"
+                                           md-no-ink class="md-raised md-primary">cancel
+                                </md-button>
+
+                            </div>
+
+                            <!--<div class="form-group" align="center">-->
+                                <!--<a style="color:red" tabindex="-1" ng-click="forgotUserPassword(user.username)"><span-->
+                                        <!--style="text-decoration: underline;cursor: pointer">Forgot Password</span>?</a>-->
+                                <!--<a style="color:green" tabindex="-1" ng-click="signUpPage()"><span-->
+                                        <!--style="text-decoration: underline;cursor: pointer;margin-left: 10px">Register Now</span>?</a>-->
+
+                            <!--</div>-->
+                            <div class="form-group" align="center">
+                                <a style="color:darkblue" tabindex="-1" ng-click="skipSignInPage()"><span
+                                        style="text-decoration: underline;cursor: pointer">Skip</span> >></a>
+                            </div>
+
+                            <img ng-click="fbLogin()" class=" md-card-image"
+                                 style="width:253px;cursor: pointer"
+                                 ng-src="{{'/assets/facebook-sign-in-button-png-26.png'}}"
+                                 alt="Washed Out">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

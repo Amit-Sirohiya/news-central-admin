@@ -2,7 +2,8 @@
     <md-toolbar class="md-menu-toolbar">
         <div layout="row">
             <md-toolbar-filler layout layout-align="center center" ng-click="goToDashboard()">
-                <img src="../assets/news-central-logo.png" width="80" height="80" class = "app-logo"/>
+
+                <img  src="../assets/news-central-logo.png" width="80" height="80" class = "app-logo"/>
             </md-toolbar-filler>
 
             <div>
@@ -43,13 +44,12 @@
                     </md-menu>
                     <md-menu>
                         <button ng-click="$mdOpenMenu()">
-                            Edit
+                            user
                         </button>
                         <md-menu-content>
                             <md-menu-item class="md-indent">
-                                <md-icon md-svg-icon="assets/img/icons/ic_undo_24px.svg"></md-icon>
-                                <md-button ng-click="navigateTo()">
-                                    Undo
+                                <md-button ng-click="userPage()">
+                                    login
                                 </md-button>
                             </md-menu-item>
                             <md-menu-item class="md-indent">

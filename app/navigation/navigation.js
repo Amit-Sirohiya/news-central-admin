@@ -18,4 +18,7 @@ angular.module("news-hub.navigation", [])
         $scope.navigateTo1 = function () {
             $state.go('news-hub.news.edit');
         };
+        $scope.userPage = function () {
+            $state.go('news-hub.signIn');
+        };
     });

@@ -11,16 +11,14 @@ angular.module('news-hub', [
     'news-hub.blocks.logger',
 
     'news-hub.version',
-
+    'news-hub.signIn',
     'news-hub.common',
     'news-hub.navigation',
     'news-hub.dashboard',
-    'news-hub.category',
+     'news-hub.category',
     'news-hub.news',
-
     'ngLodash' ,  'ngDialog'  ,  "ngFileUpload", "ui.bootstrap", "ui.bootstrap.tpls", "angular-confirm"
 ])
-
-    .controller('MainController', function () {
+.controller('MainController', function () {
 
     });

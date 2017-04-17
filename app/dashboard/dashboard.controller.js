@@ -17,6 +17,8 @@ angular.module('news-hub.news')
             });
         };
 
+
+
         $scope.newsList = [
             {
                 id: 1,
@@ -42,4 +44,20 @@ angular.module('news-hub.news')
                 'Yes, Sunidhi Chauhan who sung the song was there in three shots and she definitely looked mesmerising in the 40s attire. Go watch the song again to spot her!'
             }
         ];
+
+        $scope.share = function(news) {
+
+                FB.ui(
+                    {
+                        method: 'feed',
+                        name: news.title,
+                        link: 'http://www.newscentral.com/external-xfbml/' + news.id,
+                        picture: 'http://www.newscentral.com/external-xfbml/news-central-'+ news.id+'.png',
+                        caption: news.title,
+                        description: news.description,
+                        message: 'news central is best app ever'
+                    });
+
+        };
+
     });
